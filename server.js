@@ -9,7 +9,7 @@ var hbs = require('express-handlebars');
 const Sequelize = require('sequelize');
 
 app = express();
-app.set('port', 3002);
+app.set('port', 3003);
 
 //start server
 server = app.listen(app.get('port'), function () {
@@ -29,6 +29,7 @@ app.use(session({ secret: "mysupersecret" }));
 // setup handlebars and the view engine for res.render calls
 // (more standard to use an extension like 'hbs' rather than
 //  'html', but the Universiry server doesn't like other extensions)
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', hbs({
   extname: 'html',
